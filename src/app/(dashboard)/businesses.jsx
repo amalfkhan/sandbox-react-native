@@ -1,10 +1,25 @@
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, useColorScheme } from 'react-native';
+import { router } from 'expo-router';
+import { businesses } from '../../data/businessesData';
 import ThemedView from '../../components/ThemedView';
 import ThemedText from '../../components/ThemedText';
-import ThemedCard from '../../components/ThemedCard';
+import BusinessCard from '../../components/BusinessCard';
+import HorizontalBusinessList from '../../components/HorizontalBusinessList';
 import Spacer from '../../components/Spacer';
+import { Colors } from '../../constants/Colors';
 
 export default function Businesses() {
+  const colorScheme = useColorScheme();
+  const colors = Colors[colorScheme ?? 'light'];
+
+  const handleBusinessPress = (business) => {
+    router.push(`/business/${business.id}`);
+  };
+
+  const featuredRestaurants = businesses
+    .filter(business => business.category === 'Food & Beverage')
+    .slice(0, 5);
+
   return (
     <ThemedView style={styles.container} safeTop={true}>
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -18,23 +33,37 @@ export default function Businesses() {
 
         <Spacer size={20} />
 
-        <ThemedCard style={styles.card}>
-          <ThemedText title={true}>Business Directory</ThemedText>
-          <Spacer size={10} />
-          <ThemedText>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</ThemedText>
-        </ThemedCard>
+        <ThemedText style={styles.sectionTitle}>
+          Featured Restaurants
+        </ThemedText>
+        
+        <Spacer size={12} />
+        
+        <HorizontalBusinessList
+          businesses={featuredRestaurants}
+          onBusinessPress={handleBusinessPress}
+          style={styles.horizontalScroll}
+          contentContainerStyle={styles.horizontalScrollContent}
+        />
 
-        <ThemedCard style={styles.card}>
-          <ThemedText title={true}>Featured Businesses</ThemedText>
-          <Spacer size={10} />
-          <ThemedText>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</ThemedText>
-        </ThemedCard>
+        <Spacer size={24} />
 
-        <ThemedCard style={styles.card}>
-          <ThemedText title={true}>Categories</ThemedText>
-          <Spacer size={10} />
-          <ThemedText>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</ThemedText>
-        </ThemedCard>
+        <ThemedText style={styles.sectionTitle}>
+          All Businesses
+        </ThemedText>
+
+        <Spacer size={12} />
+
+        {businesses.map((business) => (
+          <BusinessCard
+            key={business.id}
+            business={business}
+            variant="full"
+            onPress={handleBusinessPress}
+          />
+        ))}
+        
+        <Spacer size={20} />
       </ScrollView>
     </ThemedView>
   );
@@ -46,17 +75,30 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 25,
   },
   title: {
+    fontSize: 32,
+    fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 10,
+    marginTop: 20,
   },
   subtitle: {
+    fontSize: 16,
     textAlign: 'center',
     opacity: 0.7,
+    marginTop: 8,
   },
-  card: {
-    marginBottom: 15,
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 0,
+  },
+  horizontalScroll: {
+    flexGrow: 0,
+    marginHorizontal: -20,
+  },
+  horizontalScrollContent: {
+    paddingHorizontal: 20,
   },
 });
