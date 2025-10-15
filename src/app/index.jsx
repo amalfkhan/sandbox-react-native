@@ -1,10 +1,6 @@
 import { View, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Link } from 'expo-router';
-import ThemedView from '../components/ThemedView';
-import ThemedText from '../components/ThemedText';
-import ThemedButton from '../components/ThemedButton';
-import ThemedLogo from '../components/ThemedLogo';
-import Spacer from '../components/Spacer';
+import { ThemedView, ThemedText, ThemedLogo, Spacer, ThemedButton } from '../components';
 
 export default function Index() {
   return (

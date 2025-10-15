@@ -1,10 +1,10 @@
 import { TouchableOpacity, Image, View, useColorScheme } from 'react-native';
 import { router } from 'expo-router';
-import ThemedCard from './ThemedCard';
-import ThemedText from './ThemedText';
-import Spacer from './Spacer';
-import { getBusinessImage } from '../data/businessesData';
-import { Colors } from '../constants/Colors';
+import ThemedCard from '../ui/ThemedCard';
+import ThemedText from '../ui/ThemedText';
+import Spacer from '../layout/Spacer';
+import { getBusinessImage } from '../../data/businessesData';
+import { Colors } from '../../constants/Colors';
 
 const renderStars = (rating) => {
   const fullStars = Math.floor(rating);
