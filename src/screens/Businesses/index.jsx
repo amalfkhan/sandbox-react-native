@@ -1,12 +1,12 @@
-import { ScrollView, StyleSheet, useColorScheme } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { businesses } from '../../data/businessesData';
 import { ThemedView, ThemedText, Spacer, BusinessCard, HorizontalBusinessList } from '../../components';
 import { Colors } from '../../constants/Colors';
+import useTheme from '../../hooks/useTheme';
 
 export default function BusinessesScreen() {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme ?? 'light'];
+  const { theme } = useTheme();
 
   const handleBusinessPress = (business) => {
     router.push(`/business/${business.id}`);

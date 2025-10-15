@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Alert, useColorScheme, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, StyleSheet, TextInput, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Link, router } from 'expo-router';
 import { ThemedView, ThemedText, Spacer, ThemedButton } from '../../components';
 import { Colors } from '../../constants/Colors';
+import useTheme from '../../hooks/useTheme';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme] ?? Colors.light;
+  const { theme } = useTheme();
 
   const handleRegister = () => {
     if (!name || !email || !password || !confirmPassword) {

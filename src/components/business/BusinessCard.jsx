@@ -1,10 +1,11 @@
-import { TouchableOpacity, Image, View, useColorScheme } from 'react-native';
+import { TouchableOpacity, Image, View } from 'react-native';
 import { router } from 'expo-router';
 import ThemedCard from '../ui/ThemedCard';
 import ThemedText from '../ui/ThemedText';
 import Spacer from '../layout/Spacer';
 import { getBusinessImage } from '../../data/businessesData';
 import { Colors } from '../../constants/Colors';
+import useTheme from '../../hooks/useTheme';
 
 const renderStars = (rating) => {
   const fullStars = Math.floor(rating);
@@ -24,8 +25,7 @@ export default function BusinessCard({
   style,
   onPress 
 }) {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme ?? 'light'];
+  const { theme } = useTheme();
   
   const handlePress = () => {
     if (onPress) {
@@ -70,7 +70,7 @@ export default function BusinessCard({
               </View>
             ) : (
               <ThemedText 
-                style={[styles.fullCategory, { color: colors.text, opacity: 0.7 }]}
+                style={[styles.fullCategory, { color: theme.text, opacity: 0.7 }]}
               >
                 {business.category}
               </ThemedText>
@@ -81,7 +81,7 @@ export default function BusinessCard({
           
           {isCompact ? (
             <ThemedText 
-              style={[styles.compactCategory, { color: colors.text, opacity: 0.7 }]}
+              style={[styles.compactCategory, { color: theme.text, opacity: 0.7 }]}
             >
               {business.category}
             </ThemedText>
