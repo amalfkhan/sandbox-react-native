@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet } from 'react-native';
-import { ThemedView, ThemedText, Spacer, SponsorshipBanner, PrayerScheduleCard, PrayerTimesCard } from '../../components';
+import { ThemedView, ThemedText, Spacer, SponsorshipBanner, PrayerTimesCard, EventCardElevated } from '../../components';
 import { businesses } from '../../data/businessesData';
 
 export default function HomeScreen() {
@@ -20,6 +20,13 @@ export default function HomeScreen() {
         <Spacer size={15} />
         
         <PrayerTimesCard />
+        
+        <Spacer size={24} />
+        
+        <ThemedText style={styles.sectionTitle}>Events</ThemedText>
+        <Spacer size={15} />
+        
+        <EventCardElevated />
         
         <Spacer size={20} />
       </ScrollView>

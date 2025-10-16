@@ -3,3 +3,4 @@ export * from './ui';
 export * from './business';
 export * from './layout';
 export * from './prayer';
+export * from './events';

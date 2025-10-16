@@ -49,6 +49,14 @@ const styles = StyleSheet.create({
   prayerCard: {
     padding: 20,
     alignItems: 'flex-start',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 3,
+    elevation: 2,
   },
   prayerContent: {
     alignItems: 'flex-start',
