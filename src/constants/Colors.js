@@ -1,4 +1,5 @@
 export const Colors = {
+  // Brand colors that work in both themes
   primary: "#606c38",
   warning: "#bc6c25",
   warningForeground: "#ffffff",
@@ -19,6 +20,12 @@ export const Colors = {
     shadow: "#00000030",
     border: "#2a342d",
     input: "#1a201c",
+    inputText: "#f1f5f0",
+    placeholder: "#6b7669",
+    tabBarBackground: "#1a201c",
+    tabBarBorder: "#2a342d",
+    modalBackground: "#0f1511",
+    overlay: "#00000080",
   },
 
   light: {
@@ -33,5 +40,11 @@ export const Colors = {
     shadow: "#00000015",
     border: "#e8ebe7",
     input: "#f8faf7",
+    inputText: "#2d3830",
+    placeholder: "#8a9688",
+    tabBarBackground: "#f8faf7",
+    tabBarBorder: "#e8ebe7",
+    modalBackground: "#ffffff",
+    overlay: "#00000040",
   },
 };

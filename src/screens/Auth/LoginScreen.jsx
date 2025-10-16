@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, StyleSheet, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Link, router } from 'expo-router';
-import { ThemedView, ThemedText, Spacer, ThemedButton } from '../../components';
-import { Colors } from '../../constants/Colors';
-import useTheme from '../../hooks/useTheme';
+import { ThemedView, ThemedText, Spacer, ThemedButton, ThemedInput } from '../../components';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { theme } = useTheme();
 
   const handleLogin = () => {
     if (!email || !password) {
@@ -34,18 +31,18 @@ export default function LoginScreen() {
         <Spacer size={30} />
 
         <View style={styles.form}>
-          <TextInput
-            style={[styles.input, { borderColor: theme.border, backgroundColor: theme.input }]}
-            placeholder="Email"
+          <ThemedInput
+            label="Email"
+            placeholder="Enter your email"
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
             autoCapitalize="none"
           />
 
-          <TextInput
-            style={[styles.input, { borderColor: theme.border, backgroundColor: theme.input }]}
-            placeholder="Password"
+          <ThemedInput
+            label="Password"
+            placeholder="Enter your password"
             value={password}
             onChangeText={setPassword}
             secureTextEntry
@@ -88,12 +85,5 @@ const styles = StyleSheet.create({
   },
   form: {
     width: '100%',
-  },
-  input: {
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 15,
-    fontSize: 16,
   },
 });

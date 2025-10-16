@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, StyleSheet, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Link, router } from 'expo-router';
-import { ThemedView, ThemedText, Spacer, ThemedButton } from '../../components';
-import { Colors } from '../../constants/Colors';
-import useTheme from '../../hooks/useTheme';
+import { ThemedView, ThemedText, Spacer, ThemedButton, ThemedInput } from '../../components';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const { theme } = useTheme();
 
   const handleRegister = () => {
     if (!name || !email || !password || !confirmPassword) {
@@ -38,58 +35,58 @@ export default function RegisterScreen() {
           Sign up to get started
         </ThemedText>
 
-      <Spacer size={30} />
+        <Spacer size={30} />
 
-      <View style={styles.form}>
-        <TextInput
-          style={[styles.input, { borderColor: theme.border, backgroundColor: theme.input }]}
-          placeholder="Full Name"
-          value={name}
-          onChangeText={setName}
-        />
-
-        <TextInput
-          style={[styles.input, { borderColor: theme.border, backgroundColor: theme.input }]}
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-
-        <TextInput
-          style={[styles.input, { borderColor: theme.border, backgroundColor: theme.input }]}
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-        />
-
-        <TextInput
-          style={[styles.input, { borderColor: theme.border, backgroundColor: theme.input }]}
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-          secureTextEntry
-        />
-
-        <Spacer size={20} />
-
-        <ThemedButton 
-          title="Register" 
-          onPress={handleRegister}
-        />
-
-        <Spacer size={15} />
-
-        <Link href="/(auth)/login" asChild>
-          <ThemedButton 
-            title="Already have an account? Login" 
-            variant="text"
+        <View style={styles.form}>
+          <ThemedInput
+            label="Full Name"
+            placeholder="Enter your full name"
+            value={name}
+            onChangeText={setName}
           />
-        </Link>
-      </View>
-    </ThemedView>
+
+          <ThemedInput
+            label="Email"
+            placeholder="Enter your email"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+
+          <ThemedInput
+            label="Password"
+            placeholder="Enter your password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+
+          <ThemedInput
+            label="Confirm Password"
+            placeholder="Confirm your password"
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            secureTextEntry
+          />
+
+          <Spacer size={20} />
+
+          <ThemedButton 
+            title="Register" 
+            onPress={handleRegister}
+          />
+
+          <Spacer size={15} />
+
+          <Link href="/(auth)/login" asChild>
+            <ThemedButton 
+              title="Already have an account? Login" 
+              variant="text"
+            />
+          </Link>
+        </View>
+      </ThemedView>
     </TouchableWithoutFeedback>
   );
 }
@@ -110,12 +107,5 @@ const styles = StyleSheet.create({
   },
   form: {
     width: '100%',
-  },
-  input: {
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 15,
-    fontSize: 16,
   },
 });

@@ -11,6 +11,7 @@ export default function ThemedButton({
   ...props 
 }) {
   const { theme } = useTheme();
+  
   const getButtonStyle = () => {
     switch (variant) {
       case 'outline':
@@ -19,6 +20,8 @@ export default function ThemedButton({
         return [styles.button, styles.textButton, style];
       case 'warning':
         return [styles.button, { backgroundColor: Colors.warning }, style];
+      case 'secondary':
+        return [styles.button, { backgroundColor: theme.uiBackground, borderColor: theme.border, borderWidth: 1 }, style];
       default:
         return [styles.button, { backgroundColor: Colors.primary }, style];
     }
@@ -32,6 +35,8 @@ export default function ThemedButton({
         return [styles.buttonText, { color: Colors.primary }, textStyle];
       case 'warning':
         return [styles.buttonText, { color: Colors.warningForeground }, textStyle];
+      case 'secondary':
+        return [styles.buttonText, { color: theme.text }, textStyle];
       default:
         return [styles.buttonText, { color: Colors.primaryForeground }, textStyle];
     }

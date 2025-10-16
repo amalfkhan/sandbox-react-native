@@ -12,7 +12,9 @@ export default function DashboardLayout() {
         tabBarActiveTintColor: theme.iconColorFocused,
         tabBarInactiveTintColor: theme.iconColor,
         tabBarStyle: {
-          backgroundColor: theme.navBackground,
+          backgroundColor: theme.tabBarBackground,
+          borderTopColor: theme.tabBarBorder,
+          borderTopWidth: 1,
           paddingTop: 8,
           height: 88,
         },
