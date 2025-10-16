@@ -19,6 +19,12 @@ export const Colors = {
     shadow: "#00000030",
     border: "#2a342d",
     input: "#1a201c",
+    // Sponsorship banner colors
+    bannerBackground: "#1a1a0a",
+    bannerPrimaryText: "#f1f5f0",
+    bannerSecondaryText: "#a8c29f",
+    bannerAccent: "#d4af37",
+    bannerLabelBg: "rgba(0, 0, 0, 0.3)",
   },
 
   light: {
@@ -33,5 +39,11 @@ export const Colors = {
     shadow: "#00000015",
     border: "#e8ebe7",
     input: "#f8faf7",
+    // Sponsorship banner colors
+    bannerBackground: "#FFFBF0",
+    bannerPrimaryText: "#2D1B69",
+    bannerSecondaryText: "#5D4E75",
+    bannerAccent: "#8B6914",
+    bannerLabelBg: "rgba(255, 255, 255, 0.2)",
   },
 };
