@@ -1,10 +1,9 @@
-import { View, StyleSheet, useColorScheme } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors } from '../constants/Colors';
+import useTheme from '../../hooks/useTheme';
 
 export default function ThemedLogo({ size = 60, style }) {
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme] ?? Colors.light;
+  const { theme } = useTheme();
 
   return (
     <View style={[styles.container, style]}>

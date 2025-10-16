@@ -1,5 +1,6 @@
-import { Pressable, Text, StyleSheet, useColorScheme } from 'react-native';
-import { Colors } from '../constants/Colors';
+import { Pressable, Text, StyleSheet } from 'react-native';
+import { Colors } from '../../constants/Colors';
+import useTheme from '../../hooks/useTheme';
 
 export default function ThemedButton({ 
   title, 
@@ -9,8 +10,7 @@ export default function ThemedButton({
   textStyle,
   ...props 
 }) {
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme] ?? Colors.light;
+  const { theme } = useTheme();
   const getButtonStyle = () => {
     switch (variant) {
       case 'outline':
