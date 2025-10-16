@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 0.5,
     },
-    shadowOpacity: 0.08,
-    shadowRadius: 3,
-    elevation: 2,
+    shadowOpacity: 0.06,
+    shadowRadius: 2,
+    elevation: 1.5,
   },
   eventIconElevated: {
     backgroundColor: 'rgba(74, 144, 226, 0.1)',

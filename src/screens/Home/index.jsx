@@ -1,11 +1,13 @@
 import { ScrollView, StyleSheet } from 'react-native';
-import { ThemedView, ThemedText, Spacer, SponsorshipBanner, PrayerTimesCard, EventCardElevated } from '../../components';
+import { ThemedView, ThemedText, Spacer, SponsorshipBanner, PrayerTimesCard, EventCardElevated, NewsCardElevated } from '../../components';
 import { businesses } from '../../data/businessesData';
 
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container} safeTop={true}>
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <Spacer size={20} />
+        
         <ThemedText title={true} style={styles.title}>
           Community Center
         </ThemedText>
@@ -27,6 +29,13 @@ export default function HomeScreen() {
         <Spacer size={15} />
         
         <EventCardElevated />
+        
+        <Spacer size={24} />
+        
+        <ThemedText style={styles.sectionTitle}>News</ThemedText>
+        <Spacer size={15} />
+        
+        <NewsCardElevated />
         
         <Spacer size={20} />
       </ScrollView>
