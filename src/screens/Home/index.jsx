@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet } from 'react-native';
-import { ThemedView, ThemedText, Spacer, SponsorshipBanner } from '../../components';
+import { ThemedView, ThemedText, Spacer, SponsorshipBanner, PrayerScheduleCard, PrayerTimesCard } from '../../components';
 import { businesses } from '../../data/businessesData';
 
 export default function HomeScreen() {
@@ -13,6 +13,13 @@ export default function HomeScreen() {
         <Spacer size={10} />
         
         <SponsorshipBanner business={businesses[0]} />
+        
+        <Spacer size={20} />
+        
+        <ThemedText style={styles.sectionTitle}>Prayer Times</ThemedText>
+        <Spacer size={15} />
+        
+        <PrayerTimesCard />
         
         <Spacer size={20} />
       </ScrollView>
@@ -34,5 +41,16 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     letterSpacing: 0.5,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 5,
+  },
+  variantLabel: {
+    fontSize: 14,
+    fontWeight: '500',
+    opacity: 0.8,
+    marginBottom: 5,
   },
 });
