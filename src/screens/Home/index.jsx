@@ -1,37 +1,43 @@
 import { ScrollView, StyleSheet } from 'react-native';
-import { ThemedView, ThemedText, Spacer, ThemedCard } from '../../components';
+import { ThemedView, ThemedText, Spacer, SponsorshipBanner, PrayerTimesCard, EventCardElevated, NewsCardElevated } from '../../components';
+import { businesses } from '../../data/businessesData';
 
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container} safeTop={true}>
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <Spacer size={20} />
+        
         <ThemedText title={true} style={styles.title}>
           Community Center
         </ThemedText>
+
+        <Spacer size={10} />
         
-        <ThemedText style={styles.subtitle}>
-          Welcome to your community hub
-        </ThemedText>
-
+        <SponsorshipBanner business={businesses[0]} />
+        
         <Spacer size={20} />
-
-        <ThemedCard style={styles.card}>
-          <ThemedText title={true}>Latest Announcements</ThemedText>
-          <Spacer size={10} />
-          <ThemedText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</ThemedText>
-        </ThemedCard>
-
-        <ThemedCard style={styles.card}>
-          <ThemedText title={true}>Upcoming Events</ThemedText>
-          <Spacer size={10} />
-          <ThemedText>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</ThemedText>
-        </ThemedCard>
-
-        <ThemedCard style={styles.card}>
-          <ThemedText title={true}>Quick Links</ThemedText>
-          <Spacer size={10} />
-          <ThemedText>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ThemedText>
-        </ThemedCard>
+        
+        <ThemedText style={styles.sectionTitle}>Prayer Times</ThemedText>
+        <Spacer size={15} />
+        
+        <PrayerTimesCard />
+        
+        <Spacer size={24} />
+        
+        <ThemedText style={styles.sectionTitle}>Events</ThemedText>
+        <Spacer size={15} />
+        
+        <EventCardElevated />
+        
+        <Spacer size={24} />
+        
+        <ThemedText style={styles.sectionTitle}>News</ThemedText>
+        <Spacer size={15} />
+        
+        <NewsCardElevated />
+        
+        <Spacer size={20} />
       </ScrollView>
     </ThemedView>
   );
@@ -46,14 +52,21 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    textAlign: 'center',
+    textAlign: 'left',
     marginBottom: 10,
+    fontSize: 32,
+    fontWeight: 'bold',
+    letterSpacing: 0.5,
   },
-  subtitle: {
-    textAlign: 'center',
-    opacity: 0.7,
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 5,
   },
-  card: {
-    marginBottom: 15,
+  variantLabel: {
+    fontSize: 14,
+    fontWeight: '500',
+    opacity: 0.8,
+    marginBottom: 5,
   },
 });
